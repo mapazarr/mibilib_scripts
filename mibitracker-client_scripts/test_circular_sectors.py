@@ -81,10 +81,3 @@ assert_array_equal(circ_secs, expected)
 #                                    mi.MibiImage(data, channels))
 ##import IPython; IPython.embed()
 #assert_array_equal(circ_secs_4, quads)
-
-# TODO: assert in secs and quads methods that nothing is left behind!!!
-# these should be equal!!!
-#    print('sum of vals: {}'.format(vals.sum(axis=0)))
-#    print('sum of secs: {}'.format(secs.sum(axis=1)))
-# same for quads!!!
-# TODO: create my own repo before committing these changes?!!!
