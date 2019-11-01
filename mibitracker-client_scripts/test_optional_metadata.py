@@ -32,11 +32,20 @@ for image_id in l_image_ids:
     print()
     print(f'image {image_id}')
     print(f'channels: {im.channels}')
+    print(f'metadata: {im.metadata}')
+    print()
+    print('Adding additional metadata')
     im.optional_metadata['test'] = 'value'
     print(f'metadata: {im.metadata}')
+    images.append(im)
+
+# select first image:
+print()
+print('Using first image')
+image = images[0]
 
 # create an image:
-new_image = mi.MibiImage(im.data, im.channels, **im.metadata())
+new_image = mi.MibiImage(image.data, image.channels, **image.metadata())
 print()
 print('new image')
 print(new_image)
