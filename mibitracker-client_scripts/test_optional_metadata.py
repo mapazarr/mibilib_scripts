@@ -35,14 +35,43 @@ for image_id in l_image_ids:
     print(f'metadata: {im.metadata}')
     print()
     print('Adding additional metadata')
-    im.optional_metadata['test'] = 'value'
-    print(f'metadata: {im.metadata}')
+    #im.optional_metadata['test'] = 'value'
+    im.test0 = 'value'
+    im.test1 = 'value'
+    im.test2 = 'value'
+    im.test3 = 'value'
+    im.test4 = 'value'
+    im.test5 = 'value'
+    im.test6 = 'value'
+    im.test7 = 'value'
+    im.test8 = 'value'
+    im.test9 = 'value'
+    #print(f'metadata: {im.metadata}')
+    print(f'metadata: {im.metadata()}')
     images.append(im)
 
 # select first image:
 print()
 print('Using first image')
 image = images[0]
+
+# access optional metadata
+#print()
+#print(f'optional_metadata: {image.optional_metadata}')
+#print(f"test: {image.optional_metadata['test']}")
+#for k, v in image.optional_metadata.items():
+#    print(f'{k}: {v}')
+
+# set additional metadata
+image.test_out = 'value_out'
+print()
+print(f'image.test_out: {image.test_out}')
+
+# print names of all attributes in object
+print()
+print(im.__dict__.keys())
+
+#import IPython; IPython.embed()
 
 # create an image:
 new_image = mi.MibiImage(image.data, image.channels, **image.metadata())
@@ -63,4 +92,9 @@ print('new image from file')
 print(new_image_from_file)
 
 # compare images
+print(new_image.metadata())
+print(new_image_from_file.metadata())
 assert(new_image.metadata() == new_image_from_file.metadata())
+
+print()
+print('Done.')
